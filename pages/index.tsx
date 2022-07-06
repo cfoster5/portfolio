@@ -42,6 +42,24 @@ const Home: NextPage = () => {
           name="description"
           content="A web and app developer based in Evansville, IN"
         />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Corey Foster | Portfolio" />
+        <meta
+          property="og:description"
+          content="A web and app developer based in Evansville, IN"
+        />
+        <meta property="og:image" content="/site.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Corey Foster | Portfolio" />
+        <meta
+          property="twitter:description"
+          content="A web and app developer based in Evansville, IN"
+        />
+        <meta property="twitter:image" content="/site.png" />
       </Head>
 
       <main className="p-8 sm:p-20">
