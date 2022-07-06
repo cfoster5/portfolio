@@ -96,12 +96,20 @@ const Home: NextPage = () => {
                 // className="relative aspect-[195/422] rounded-lg bg-blue-500"
                 whileHover={{ scale: 1.025 }}
               >
+                <Image
+                  src={project.img}
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="top"
+                  className="rounded-lg"
+                />
                 <div
                   className="absolute block h-full w-full rounded-lg"
                   style={{
-                    background: `linear-gradient(0deg, rgb(34, 35, 38) 9%, rgba(33, 34, 37, 0.89) 42%, rgba(34, 35, 38, 0) 156%), url(${project.img}) center top / cover`,
+                    background: `linear-gradient(0deg, rgb(34, 35, 38) 9%, rgba(33, 34, 37, 0.89) 42%, rgba(34, 35, 38, 0) 156%)`,
                   }}
-                ></div>
+                />
                 <div className="absolute bottom-0 p-4 pt-0">
                   <p className="text-xl font-bold text-white">{project.name}</p>
                   <div className="flex flex-wrap gap-3">
