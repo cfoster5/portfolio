@@ -173,6 +173,8 @@ const Home: NextPage = () => {
               <a
                 href="https://github.com/cfoster5"
                 className="flex items-center hover:underline"
+                target="_blank"
+                rel="noreferrer"
               >
                 <FaGithub />
                 <span className="ml-2">GitHub</span>
@@ -185,6 +187,8 @@ const Home: NextPage = () => {
           <a
             className="flex items-center justify-center gap-2 hover:underline"
             href="https://github.com/cfoster5/portfolio"
+            target="_blank"
+            rel="noreferrer"
           >
             <RiGitRepositoryLine />
             Powered by Next.js and Tailwind CSS
