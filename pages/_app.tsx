@@ -2,9 +2,14 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 
+import { Inter } from "@next/font/google";
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter();
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className={inter.className}>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy="afterInteractive"
@@ -25,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 
