@@ -2,6 +2,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaPaperPlane } from "react-icons/fa";
 import { RiGitRepositoryLine } from "react-icons/ri";
@@ -155,13 +156,13 @@ const Home: NextPage = () => {
               width={16}
               height={16}
             /> */}
-              <a
+              <Link
                 href="mailto:cfoster3204@gmail.com"
                 className="flex items-center hover:underline"
               >
                 <FaPaperPlane />
                 <span className="ml-2">cfoster3204@gmail.com</span>
-              </a>
+              </Link>
             </div>
             <div className="mt-3 flex">
               {/* <Image
@@ -170,7 +171,7 @@ const Home: NextPage = () => {
               width={16}
               height={16}
             /> */}
-              <a
+              <Link
                 href="https://github.com/cfoster5"
                 className="flex items-center hover:underline"
                 target="_blank"
@@ -178,13 +179,13 @@ const Home: NextPage = () => {
               >
                 <FaGithub />
                 <span className="ml-2">GitHub</span>
-              </a>
+              </Link>
             </div>
           </div>
         </main>
 
         <footer className="flex h-8 w-full items-center justify-center border-t p-8">
-          <a
+          <Link
             className="flex items-center justify-center gap-2 hover:underline"
             href="https://github.com/cfoster5/portfolio"
             target="_blank"
@@ -192,7 +193,7 @@ const Home: NextPage = () => {
           >
             <RiGitRepositoryLine />
             Powered by Next.js and Tailwind CSS
-          </a>
+          </Link>
         </footer>
       </div>
       {/* <Popover /> */}
