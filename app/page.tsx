@@ -1,12 +1,9 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { FaGithub, FaPaperPlane } from "react-icons/fa";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { projects } from "../projects";
+import { ProjectCard } from "./ProjectCard";
 
 const Popover = () => {
   return (
@@ -17,45 +14,6 @@ const Popover = () => {
     </div>
   );
 };
-
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-  <div className="flex w-full flex-col flex-nowrap gap-4">
-    <motion.div
-      // className="relative h-96 rounded-lg bg-blue-500 sm:w-80"
-      className="relative h-[30rem] cursor-pointer overflow-hidden rounded-lg sm:w-auto"
-      // className="relative aspect-[195/422] rounded-lg bg-blue-500"
-      whileHover={{ scale: 1.025 }}
-    >
-      {/* TODO: fix image peeking through at borders */}
-      <Image
-        src={project.img}
-        alt=""
-        fill
-        className="rounded-lg object-cover object-top"
-      />
-      <div
-        className="absolute block h-full w-full rounded-lg"
-        style={{
-          background: `linear-gradient(0deg, rgb(34, 35, 38) 9%, rgba(33, 34, 37, 0.89) 42%, rgba(34, 35, 38, 0) 156%)`,
-        }}
-      />
-      {/*  */}
-      <div className="absolute bottom-0 p-4 pt-0">
-        <p className="text-xl font-bold text-white">{project.name}</p>
-        <div className="flex flex-wrap gap-3">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-sm text-zinc-300 dark:text-zinc-400"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  </div>
-);
 
 const Home: NextPage = () => {
   // const [angle, setAngle] = useState(8);
@@ -87,34 +45,6 @@ const Home: NextPage = () => {
     <>
       <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-zinc-900 dark:text-white">
         {/* <div className="flex min-h-screen flex-col items-center justify-center py-2"> */}
-        <Head>
-          <title>Corey Foster | Portfolio</title>
-          <link rel="icon" href="/favicon.ico" />
-          <meta name="title" content="Corey Foster | Portfolio" />
-          <meta
-            name="description"
-            content="A web and app developer based in Evansville, IN"
-          />
-
-          {/* Open Graph / Facebook */}
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="Corey Foster | Portfolio" />
-          <meta
-            property="og:description"
-            content="A web and app developer based in Evansville, IN"
-          />
-          <meta property="og:image" content="/site.png" />
-
-          {/* Twitter */}
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:title" content="Corey Foster | Portfolio" />
-          <meta
-            property="twitter:description"
-            content="A web and app developer based in Evansville, IN"
-          />
-          <meta property="twitter:image" content="/site.png" />
-        </Head>
-
         <main className="p-8 sm:p-20">
           <div className="text-center">
             <h1 className="text-6xl font-bold">

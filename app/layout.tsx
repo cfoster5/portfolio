@@ -1,16 +1,22 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import "./globals.css";
+import { Inter } from "@next/font/google";
 import Script from "next/script";
 
-import { Inter } from "@next/font/google";
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter();
-
-function MyApp({ Component, pageProps }: AppProps) {
+export default function RootLayout({
+  // Layouts must accept a children prop.
+  // This will be populated with nested layouts or pages
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className={inter.className}>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
+    <html lang="en" className={inter.variable}>
+      <body className="bg-white dark:bg-zinc-900">{children}</body>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=G-RERSJP4P37`}
@@ -29,9 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           `,
         }}
       />
-      <Component {...pageProps} />
-    </div>
+    </html>
   );
 }
-
-export default MyApp;
