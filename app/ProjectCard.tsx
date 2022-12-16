@@ -4,7 +4,7 @@ import Image from "next/image";
 import { projects } from "../projects";
 
 export const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-  <div className="flex w-full flex-col flex-nowrap gap-4">
+  <div className="w-full">
     <motion.div
       // className="relative h-96 rounded-lg bg-blue-500 sm:w-80"
       className="relative h-[30rem] cursor-pointer overflow-hidden rounded-lg sm:w-auto"
