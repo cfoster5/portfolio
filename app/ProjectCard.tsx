@@ -25,10 +25,10 @@ export const ProjectCard = ({
           src={project.img}
           alt=""
           fill
-          className="rounded-lg object-cover object-top"
+          className="object-cover object-top"
         />
         <div
-          className="absolute block h-full w-full rounded-lg"
+          className="absolute block h-full w-full"
           style={{
             background: `linear-gradient(0deg, rgb(34, 35, 38) 9%, rgba(33, 34, 37, 0.89) 42%, rgba(34, 35, 38, 0) 156%)`,
           }}
