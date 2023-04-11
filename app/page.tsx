@@ -111,7 +111,7 @@ const Home: NextPage = () => {
           </div>
         </main>
 
-        <footer className="flex h-8 w-full items-center justify-center border-t p-8">
+        <footer className="mt-auto flex h-8 w-full items-center justify-center border-t p-8">
           <Link
             className="flex items-center justify-center gap-2 hover:underline"
             href="https://github.com/cfoster5/portfolio"
