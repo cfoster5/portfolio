@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl">
+          <div className="max-w-6xl">
             <h2 className="mt-6 text-4xl font-bold">About Me</h2>
             <p className="mt-3">
               I&apos;m currently an API developer in the financial services
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
             ))}
           </div>
 
-          <div className="max-w-4xl">
+          <div>
             <h2 className="mt-6 text-4xl font-bold">Contact</h2>
             <div className="mt-3 flex">
               {/* <Image
