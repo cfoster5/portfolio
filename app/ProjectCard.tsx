@@ -7,7 +7,7 @@ export const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
   <div className="w-full">
     <motion.div
       // className="relative h-96 rounded-lg bg-blue-500 sm:w-80"
-      className="relative h-[30rem] cursor-pointer overflow-hidden rounded-lg sm:w-auto"
+      className="relative h-[30rem] cursor-pointer overflow-hidden rounded-lg sm:aspect-[9/16] sm:w-auto"
       // className="relative aspect-[195/422] rounded-lg bg-blue-500"
       whileHover={{ scale: 1.025 }}
     >
