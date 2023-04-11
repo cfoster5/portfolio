@@ -22,10 +22,17 @@ export const projects = [
     link: "https://marvelratings.web.app",
   },
   {
+    name: "Devanco Foods",
+    description:
+      "Hybrid app developed with Angular, Ionic, Firebase, and Twilio that aids in family management and focuses on a shared and intuitive grocery list.",
+    img: "/devanco.jpeg",
+    tags: ["angular", "ionic", "firebase", "sendgrid api"],
+  },
+  {
     name: "Nudget",
     description:
       "Hybrid app developed with Angular, Ionic, Firebase, and Twilio that aids in family management and focuses on a shared and intuitive grocery list.",
-    img: "/nudget.png",
+    img: "/nudget2.jpeg",
     tags: ["angular", "ionic", "firebase", "twilio api"],
   },
 ];
