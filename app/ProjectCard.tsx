@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { projects } from "../projects";
 
-export const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-  <div className="w-full">
+export const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
+  <div className="w-full flex-1 flex-grow-0">
     <motion.div
       // className="relative h-96 rounded-lg bg-blue-500 sm:w-80"
       className="relative h-[30rem] cursor-pointer overflow-hidden rounded-lg sm:aspect-[9/16] sm:w-auto"

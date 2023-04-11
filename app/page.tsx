@@ -68,7 +68,7 @@ const Home: NextPage = () => {
             <h2 className="mt-6 text-4xl font-bold">Projects</h2>
           </div>
 
-          <div className="mt-3 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-3 flex flex-col flex-wrap gap-4 sm:flex-row">
             {projects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
