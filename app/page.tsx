@@ -3,6 +3,8 @@ import Link from "next/link";
 import { FaGithub, FaPaperPlane } from "react-icons/fa";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { LayoutWrapper } from "./LayoutWrapper";
+import { projects } from "../projects";
+import { ProjectCard } from "./ProjectCard";
 
 const Home: NextPage = () => {
   // const [angle, setAngle] = useState(8);
@@ -58,9 +60,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className="mt-3 flex flex-col flex-wrap gap-4 sm:flex-row">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
+            <LayoutWrapper />
           </div>
 
           <div>
