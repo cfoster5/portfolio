@@ -26,7 +26,7 @@ export const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
       />
       {/*  */}
       <div className="absolute bottom-0 p-4 pt-0">
-        <p className="text-xl font-bold text-white">{project.name}</p>
+        <h3 className="text-xl font-bold text-white">{project.name}</h3>
         <div className="flex flex-wrap gap-3">
           {project.tags.map((tag) => (
             <span
