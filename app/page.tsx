@@ -61,9 +61,9 @@ const Home: NextPage = () => {
             <p className="mt-3">
               I&apos;m currently an API developer in the financial services
               industry. I previously led custom development in SharePoint using
-              React and Angular. I love movies, shows, and games and often
-              combine these interests with apps or sites I&apos;m working on in
-              my free time.
+              React and Angular. I love music, movies, shows, and games and
+              often combine these interests with apps or sites I&apos;m working
+              on in my free time.
             </p>
             <h2 className="mt-6 text-4xl font-bold">Projects</h2>
           </div>
