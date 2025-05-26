@@ -76,7 +76,7 @@ export default function Home() {
           </blockquote>
           <blockquote className="text-xl italic text-gray-600 dark:text-gray-400">
             {
-              "“I love this app! To be honest, I think I mainly like it for its straightforward and minimalist approach to this concept. A lot of the water trackers I've used and seen on here have too many features, and/or can track more than water. Which is completely fine, I'm happy that those apps work for a lot of people, but I think this is a much-needed app for people like me who might feel similarly. In terms of functionality and appearance, there's not much to it, but I think that's also part of the idea. It works well, and that's what matters most!”"
+              "“I love this app! To be honest, I think I mainly like it for its straightforward and minimalist approach to this concept. A lot of the water trackers I've used and seen on here have too many features, and/or can track more than water. In terms of functionality and appearance, there's not much to it, but I think that's also part of the idea. It works well, and that's what matters most!”"
             }
           </blockquote>
         </div>
@@ -87,7 +87,7 @@ export default function Home() {
         <h2 className="mb-8 text-center text-3xl font-semibold">
           App Previews
         </h2>
-        <div className="flex justify-center space-x-4 overflow-x-auto pb-4">
+        <div className="flex space-x-4 overflow-x-auto pb-4 sm:justify-center">
           <Image
             src="/water/preview_1.png"
             alt="Find tab preview showing movie posters"
