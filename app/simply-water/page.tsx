@@ -4,6 +4,18 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   itunes: { appId: "6742065968" },
+  title: "Simply Water",
+  description: "Your clean, minimalistic hydration tracker!",
+  openGraph: {
+    title: "Simply Water",
+    description: "Your clean, minimalistic hydration tracker!",
+    images: ["/simply-water.png"],
+  },
+  icons: {
+    icon: "/simply-water.png",
+    apple: "/simply-water.png",
+    shortcut: "/simply-water.png",
+  },
 };
 
 export default function Home() {
