@@ -113,12 +113,12 @@ export default function Home() {
             "This app is built by a single developer, so please consider a donation if you like what I'm making."
           }
         </p>
-        <a
-          href="/support"
+        <Link
+          href="https://ko-fi.com/cfoster"
           className="inline-block rounded-full bg-indigo-700 px-6 py-3 text-white transition hover:bg-indigo-600"
         >
           Support Me on Ko-fi
-        </a>
+        </Link>
       </section>
     </main>
   );
