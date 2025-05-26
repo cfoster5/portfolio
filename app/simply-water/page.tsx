@@ -89,14 +89,14 @@ export default function Home() {
         </h2>
         <div className="flex space-x-4 overflow-x-auto pb-4 sm:justify-center">
           <Image
-            src="/water/preview_1.png"
+            src="/water/home_framed.png"
             alt="Find tab preview showing movie posters"
             width={300}
             height={600}
             className="flex-shrink-0 rounded-xl shadow-md"
           />
           <Image
-            src="/water/preview_2.png"
+            src="/water/history_framed.png"
             alt="Movie details preview showing overview and cast"
             width={300}
             height={600}
