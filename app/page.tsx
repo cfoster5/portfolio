@@ -1,9 +1,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { FaGithub, FaPaperPlane } from "react-icons/fa";
-import { RiGitRepositoryLine } from "react-icons/ri";
 import { projects } from "../projects";
 import { ProjectCard } from "./ProjectCard";
+import { FolderGit, Github, Mail } from "lucide-react";
 
 const Popover = () => {
   return (
@@ -74,40 +73,24 @@ const Home: NextPage = () => {
             ))}
           </div>
 
-          <div>
-            <h2 className="mt-6 text-4xl font-bold">Contact</h2>
-            <div className="mt-3 flex">
-              {/* <Image
-              src="/paper-plane.svg"
-              alt="paper-plane"
-              width={16}
-              height={16}
-            /> */}
-              <Link
-                href="mailto:cfoster3204@gmail.com"
-                className="flex items-center hover:underline"
-              >
-                <FaPaperPlane />
-                <span className="ml-2">cfoster3204@gmail.com</span>
-              </Link>
-            </div>
-            <div className="mt-3 flex">
-              {/* <Image
-              src="/paper-plane.svg"
-              alt="paper-plane"
-              width={16}
-              height={16}
-            /> */}
-              <Link
-                href="https://github.com/cfoster5"
-                className="flex items-center hover:underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub />
-                <span className="ml-2">GitHub</span>
-              </Link>
-            </div>
+          <div className="mt-6 flex flex-col gap-3">
+            <h2 className="text-4xl font-bold">Contact</h2>
+            <Link
+              href="mailto:cfoster3204@gmail.com"
+              className="flex items-center hover:underline"
+            >
+              <Mail />
+              <span className="ml-2">cfoster3204@gmail.com</span>
+            </Link>
+            <Link
+              href="https://github.com/cfoster5"
+              className="flex items-center hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github />
+              <span className="ml-2">GitHub</span>
+            </Link>
           </div>
         </main>
 
@@ -118,7 +101,7 @@ const Home: NextPage = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <RiGitRepositoryLine />
+            <FolderGit />
             Powered by Next.js and Tailwind CSS
           </Link>
         </footer>
