@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { Upload, FileText, Loader2, ClipboardPaste } from "lucide-react";
 import { Button } from "./button";
-import { Card, CardHeader, CardTitle, CardContent } from "./card";
+import { Card, CardContent } from "./card";
 import { Textarea } from "./textarea";
 
 type FileUploadProps = {
@@ -46,14 +46,14 @@ export const FileUpload = ({
 
       const files = Array.from(e.dataTransfer.files);
       const csvFile = files.find(
-        (file) => file.type === "text/csv" || file.name.endsWith(".csv")
+        (file) => file.type === "text/csv" || file.name.endsWith(".csv"),
       );
 
       if (csvFile) {
         onFileUpload(csvFile);
       }
     },
-    [onFileUpload]
+    [onFileUpload],
   );
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -111,13 +111,19 @@ export const FileUpload = ({
           onDragOver={handleDrag}
           onDrop={handleDrop}
         >
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleFileInput}
-            className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-            disabled={isLoading}
-          />
+          <label
+            htmlFor="csv-file-input"
+            className="absolute inset-0 h-full w-full cursor-pointer"
+          >
+            <input
+              id="csv-file-input"
+              type="file"
+              accept=".csv"
+              onChange={handleFileInput}
+              className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+              disabled={isLoading}
+            />
+          </label>
 
           <div className="space-y-4">
             {isLoading ? (
@@ -146,19 +152,28 @@ export const FileUpload = ({
       {/* Paste tab */}
       {activeTab === "paste" && (
         <Card className="bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
-          <CardHeader>
+          {/* <CardHeader>
             <CardTitle className="text-lg text-gray-800 dark:text-gray-200">
               Paste CSV Data
             </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Textarea
-              placeholder="Paste your CSV data here...&#10;Start Day,End Day,Days Requested,Hours Requested&#10;6/20/2025,6/20/2025,1,8&#10;5/12/2025,5/12/2025,1,8"
-              value={csvText}
-              onChange={(e) => setCsvText(e.target.value)}
-              className="min-h-[200px] font-mono text-sm"
-              disabled={isLoading}
-            />
+          </CardHeader> */}
+          <CardContent className="space-y-4 pt-6">
+            <div>
+              <label
+                htmlFor="csv-textarea"
+                className="tracking-tight block font-semibold pb-6 text-lg text-gray-800 dark:text-gray-200"
+              >
+                Paste CSV Data
+              </label>
+              <Textarea
+                id="csv-textarea"
+                placeholder="Paste your CSV data here...&#10;Start Day,End Day,Days Requested,Hours Requested&#10;6/20/2025,6/20/2025,1,8&#10;5/12/2025,5/12/2025,1,8"
+                value={csvText}
+                onChange={(e) => setCsvText(e.target.value)}
+                className="min-h-[200px] font-mono text-sm"
+                disabled={isLoading}
+              />
+            </div>
             <Button
               onClick={handlePasteSubmit}
               disabled={!csvText.trim() || isLoading}
