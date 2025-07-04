@@ -1,4 +1,22 @@
+import { Metadata } from "next";
 import PtoPacerClient from "./components/PtoPacerClient";
+
+export const metadata: Metadata = {
+  title: "PTO Pacer - Track Your Time-Off Usage",
+  description:
+    "Stay on track with your vacation time. PTO Pacer helps you visualize and pace your PTO usage.",
+  openGraph: {
+    title: "PTO Pacer",
+    description:
+      "Stay on track with your vacation time. PTO Pacer helps you visualize and pace your PTO usage.",
+    // images: ["/simply-water.png"],
+  },
+  // icons: {
+  //   icon: "/simply-water.png",
+  //   apple: "/simply-water.png",
+  //   shortcut: "/simply-water.png",
+  // },
+};
 
 export default function Page() {
   return (
