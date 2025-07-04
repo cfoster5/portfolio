@@ -29,11 +29,27 @@ export const PTOChart = ({ data }: PTOChartProps) => {
   );
 
   // Create chart data structure
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const chartData = months.map((month) => {
-    const dataPoint: Record<string, number | string> = { month };
+    const dataPoint: Record<string, number | string | null> = { month };
     Object.keys(yearData).forEach((year) => {
-      dataPoint[year] = yearData[parseInt(year)][month] || 0;
+      const yearNum = parseInt(year);
+      const monthData = yearData[yearNum][month];
+      // Only set value if we have data, otherwise use null to stop the line
+      dataPoint[year] = monthData !== undefined ? monthData : null;
     });
     return dataPoint;
   });
@@ -50,8 +66,21 @@ export const PTOChart = ({ data }: PTOChartProps) => {
   const currentYear = new Date().getFullYear();
 
   // Calculate comparison for current year vs previous year
-  const currentMonth = new Date().getMonth(); // 0-based (July = 6)
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+  const currentMonth = new Date().getMonth(); // 0-based (December = 11)
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const currentMonthName = monthNames[currentMonth];
 
   const currentYearData = yearData[currentYear];
@@ -145,18 +174,26 @@ export const PTOChart = ({ data }: PTOChartProps) => {
               }}
             />
             <Legend />
-            {years.map((year, index) => (
-              <Line
-                key={year}
-                type="monotone"
-                dataKey={year}
-                stroke={colors[index % colors.length]}
-                strokeWidth={3}
-                strokeDasharray={parseInt(year) === currentYear ? "0" : "5 5"}
-                dot={{ r: 5 }}
-                activeDot={{ r: 7 }}
-              />
-            ))}
+            {years.map((year, index) => {
+              const isCurrentYear = parseInt(year) === currentYear;
+              const baseColor = colors[index % colors.length];
+              // Add 50% opacity for non-current years
+              const strokeColor = isCurrentYear ? baseColor : `${baseColor}80`;
+
+              return (
+                <Line
+                  key={year}
+                  type="monotone"
+                  dataKey={year}
+                  stroke={strokeColor}
+                  strokeWidth={3}
+                  strokeDasharray={isCurrentYear ? "0" : "5 5"}
+                  dot={{ r: 5, fill: strokeColor }}
+                  activeDot={{ r: 7, fill: baseColor }}
+                  connectNulls={false}
+                />
+              );
+            })}
           </LineChart>
         </ResponsiveContainer>
       </div>

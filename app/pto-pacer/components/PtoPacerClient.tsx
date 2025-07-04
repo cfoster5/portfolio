@@ -86,11 +86,10 @@ export default function PtoPacerClient() {
           <Card className="border-0 bg-white/80 shadow-xl backdrop-blur-sm dark:bg-gray-800/80">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">
-                PTO Usage Pattern (Jan-Jul YTD)
+                PTO Usage Pattern (Year-to-Date)
               </CardTitle>
               <CardDescription className="dark:text-gray-400">
-                Cumulative days off taken from January through July for each
-                year
+                Cumulative days off taken throughout the year for each year
               </CardDescription>
             </CardHeader>
             <CardContent>

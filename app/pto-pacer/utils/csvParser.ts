@@ -24,10 +24,10 @@ export const parsePTOData = (csvText: string): PTOData[] => {
 
   // Get current date info for filtering
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth(); // 0-based (July = 6)
+  const currentMonth = currentDate.getMonth(); // 0-based (December = 11)
   const currentYear = currentDate.getFullYear();
 
-  // Group by year and month, only include Jan-Jul (or up to current month if in current year)
+  // Group by year and month, include all months up to current month for current year
   const monthlyData: Record<number, Record<string, number>> = {};
 
   records.forEach((record) => {
@@ -35,15 +35,29 @@ export const parsePTOData = (csvText: string): PTOData[] => {
     const year = startDate.getFullYear();
     const month = startDate.getMonth(); // 0-based
 
-    // Only include data from Jan (0) through Jul (6), or current month if in current year
-    const maxMonth = year === currentYear ? currentMonth : 6; // July = 6
+    // For current year, only include data up to current month
+    // For past years, include all months
+    const maxMonth = year === currentYear ? currentMonth : 11; // December = 11
     if (month > maxMonth) return;
 
     if (!monthlyData[year]) {
       monthlyData[year] = {};
     }
 
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
     const monthName = monthNames[month];
 
     if (!monthlyData[year][monthName]) {
@@ -55,14 +69,27 @@ export const parsePTOData = (csvText: string): PTOData[] => {
 
   // Convert to cumulative data
   const result: PTOData[] = [];
-  const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+  const monthOrder = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   Object.keys(monthlyData).forEach((yearStr) => {
     const year = parseInt(yearStr);
     let cumulative = 0;
 
     // Determine how many months to include for this year
-    const maxMonthIndex = year === currentYear ? currentMonth : 6; // July = 6
+    const maxMonthIndex = year === currentYear ? currentMonth : 11; // December = 11
 
     monthOrder.slice(0, maxMonthIndex + 1).forEach((month) => {
       cumulative += monthlyData[year][month] || 0;
