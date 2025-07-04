@@ -24,8 +24,8 @@ export default function Page() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 text-left ">
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-            Track your time-off usage throughout the year. Upload your PTO data
-            and visualize your vacation patterns.
+            Prevent burnout and track your time-off usage throughout the year.
+            Upload your PTO data and visualize your vacation patterns.
           </p>
         </div>
         {/* Interactive PTO Pacer */}
