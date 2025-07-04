@@ -10,7 +10,6 @@ import {
 } from "./card";
 import { FileUpload } from "./FileUpload";
 import { PTOChart } from "./PTOChart";
-import { ThemeToggle } from "./ThemeToggle";
 import { TrendingUp } from "lucide-react";
 import { PTOData } from "../types";
 import { parsePTOData } from "../utils/csvParser";
