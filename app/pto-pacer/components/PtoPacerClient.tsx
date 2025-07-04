@@ -46,7 +46,7 @@ export default function PtoPacerClient() {
 
   return (
     <>
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       {ptoData.length === 0 && (
         <div className="mx-auto mb-8 max-w-2xl">
           <Card className="border-2 border-dashed border-gray-300 bg-white/80 backdrop-blur-sm transition-colors hover:border-blue-400 dark:border-gray-600 dark:bg-gray-800/80 dark:hover:border-blue-500">
@@ -55,7 +55,7 @@ export default function PtoPacerClient() {
                 <TrendingUp className="h-5 w-5" />
                 Add Your PTO Data
               </CardTitle>
-              <CardDescription className="dark:text-gray-400">
+              <CardDescription className="dark:text-gray-400 text-left md:text-center">
                 Upload a CSV file or paste your PTO records to see your usage
                 patterns
               </CardDescription>
