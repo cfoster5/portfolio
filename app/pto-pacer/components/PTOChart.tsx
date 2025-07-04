@@ -17,18 +17,21 @@ type PTOChartProps = {
 
 export const PTOChart = ({ data }: PTOChartProps) => {
   // Group data by year and transform for chart
-  const yearData = data.reduce((acc, item) => {
-    if (!acc[item.year]) {
-      acc[item.year] = {};
-    }
-    acc[item.year][item.month] = item.cumulativeDays;
-    return acc;
-  }, {} as Record<number, Record<string, number>>);
+  const yearData = data.reduce(
+    (acc, item) => {
+      if (!acc[item.year]) {
+        acc[item.year] = {};
+      }
+      acc[item.year][item.month] = item.cumulativeDays;
+      return acc;
+    },
+    {} as Record<number, Record<string, number>>,
+  );
 
   // Create chart data structure
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
   const chartData = months.map((month) => {
-    const dataPoint = { month };
+    const dataPoint: Record<string, number | string> = { month };
     Object.keys(yearData).forEach((year) => {
       dataPoint[year] = yearData[parseInt(year)][month] || 0;
     });
@@ -84,8 +87,8 @@ export const PTOChart = ({ data }: PTOChartProps) => {
               comparison.isSame
                 ? "border-gray-200 bg-gray-50 text-gray-700"
                 : comparison.isAhead
-                ? "border-red-200 bg-red-50 text-red-700"
-                : "border-green-200 bg-green-50 text-green-700"
+                  ? "border-red-200 bg-red-50 text-red-700"
+                  : "border-green-200 bg-green-50 text-green-700"
             }`}
           >
             {comparison.isSame ? (
