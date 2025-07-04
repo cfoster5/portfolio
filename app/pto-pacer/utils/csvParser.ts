@@ -9,7 +9,7 @@ type PTORecord = {
 
 export const parsePTOData = (csvText: string): PTOData[] => {
   const lines = csvText.trim().split("\n");
-  const headers = lines[0].split(",");
+  // const headers = lines[0].split(",");
 
   // Parse CSV records
   const records: PTORecord[] = lines.slice(1).map((line) => {

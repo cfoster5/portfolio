@@ -4,15 +4,15 @@ import { projects } from "../projects";
 import { ProjectCard } from "./ProjectCard";
 import { FolderGit, Github, Mail } from "lucide-react";
 
-const Popover = () => {
-  return (
-    <div className="fixed top-0 z-[1001] flex h-full w-full overflow-auto">
-      <div className="relative z-[100] m-auto w-max max-w-[600px]">
-        <div className="h-48 w-96 bg-red-500"></div>
-      </div>
-    </div>
-  );
-};
+// const Popover = () => {
+//   return (
+//     <div className="fixed top-0 z-[1001] flex h-full w-full overflow-auto">
+//       <div className="relative z-[100] m-auto w-max max-w-[600px]">
+//         <div className="h-48 w-96 bg-red-500"></div>
+//       </div>
+//     </div>
+//   );
+// };
 
 const Home: NextPage = () => {
   // const [angle, setAngle] = useState(8);
