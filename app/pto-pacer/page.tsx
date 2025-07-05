@@ -11,11 +11,20 @@ export const metadata: Metadata = {
       "Stay on track with your vacation time. PTO Pacer helps you visualize and pace your PTO usage.",
     // images: ["/simply-water.png"],
   },
-  // icons: {
-  //   icon: "/simply-water.png",
-  //   apple: "/simply-water.png",
-  //   shortcut: "/simply-water.png",
-  // },
+  icons: {
+    icon: "/PTOPacer_icon.png",
+    apple: "/PTOPacer_icon.png",
+    shortcut: "/PTOPacer_icon.png",
+  },
+  keywords: [
+    "PTO tracker",
+    "track vacation days",
+    "track PTO usage",
+    "burnout prevention",
+    "take time off",
+    "vacation tracking tool",
+    "PTO planning",
+  ],
 };
 
 export default function Page() {
