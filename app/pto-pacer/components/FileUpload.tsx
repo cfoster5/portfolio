@@ -1,7 +1,13 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { Upload, FileText, Loader2, ClipboardPaste } from "lucide-react";
+import {
+  Upload,
+  FileText,
+  Loader2,
+  ClipboardPaste,
+  Lightbulb,
+} from "lucide-react";
 import { Button } from "./button";
 import { Card, CardContent } from "./card";
 import { Textarea } from "./textarea";
@@ -68,6 +74,29 @@ export const FileUpload = ({
       onCsvPaste(csvText.trim());
       setCsvText("");
     }
+  };
+
+  const handleSampleData = () => {
+    const sampleData = `Start Day,End Day,Days Requested,Hours Requested
+6/20/2025,6/20/2025,1,8
+5/12/2025,5/12/2025,1,8
+4/15/2025,4/18/2025,4,32
+3/10/2025,3/10/2025,1,8
+2/14/2025,2/17/2025,2,16
+1/20/2025,1/24/2025,5,40
+12/23/2024,12/27/2024,5,40
+11/28/2024,11/29/2024,2,16
+10/10/2024,10/11/2024,2,16
+9/2/2024,9/6/2024,5,40
+8/15/2024,8/16/2024,2,16
+7/4/2024,7/5/2024,2,16
+6/17/2024,6/21/2024,5,40
+5/27/2024,5/31/2024,5,40
+4/22/2024,4/26/2024,5,40
+3/11/2024,3/15/2024,5,40
+2/19/2024,2/23/2024,5,40
+1/15/2024,1/19/2024,5,40`;
+    setCsvText(sampleData);
   };
 
   return (
@@ -158,13 +187,25 @@ export const FileUpload = ({
             </CardTitle>
           </CardHeader> */}
           <CardContent className="space-y-4 pt-6">
-            <div>
+            <div className="flex flex-col gap-3">
               <label
                 htmlFor="csv-textarea"
-                className="tracking-tight block font-semibold pb-6 text-lg text-gray-800 dark:text-gray-200"
+                className="tracking-tight block font-semibold text-lg text-gray-800 dark:text-gray-200"
               >
                 Paste CSV Data
               </label>
+              <div className="flex justify-between items-center">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleSampleData}
+                  disabled={isLoading}
+                  className="text-sm"
+                >
+                  <Lightbulb className="w-4 h-4 mr-2" />
+                  Use Sample Data
+                </Button>
+              </div>
               <Textarea
                 id="csv-textarea"
                 placeholder="Paste your CSV data here...&#10;Start Day,End Day,Days Requested,Hours Requested&#10;6/20/2025,6/20/2025,1,8&#10;5/12/2025,5/12/2025,1,8"
