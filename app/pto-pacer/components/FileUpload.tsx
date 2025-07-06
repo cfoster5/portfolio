@@ -181,11 +181,6 @@ export const FileUpload = ({
       {/* Paste tab */}
       {activeTab === "paste" && (
         <Card className="bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
-          {/* <CardHeader>
-            <CardTitle className="text-lg text-gray-800 dark:text-gray-200">
-              Paste CSV Data
-            </CardTitle>
-          </CardHeader> */}
           <CardContent className="space-y-4 pt-6">
             <div className="flex flex-col gap-3">
               <label
