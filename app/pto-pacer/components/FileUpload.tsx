@@ -185,11 +185,11 @@ export const FileUpload = ({
             <div className="flex flex-col gap-3">
               <label
                 htmlFor="csv-textarea"
-                className="tracking-tight block font-semibold text-lg text-gray-800 dark:text-gray-200"
+                className="block text-lg font-semibold tracking-tight text-gray-800 dark:text-gray-200"
               >
                 Paste CSV Data
               </label>
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <Button
                   variant="outline"
                   size="sm"
@@ -197,7 +197,7 @@ export const FileUpload = ({
                   disabled={isLoading}
                   className="text-sm"
                 >
-                  <Lightbulb className="w-4 h-4 mr-2" />
+                  <Lightbulb className="mr-2 h-4 w-4" />
                   Use Sample Data
                 </Button>
               </div>

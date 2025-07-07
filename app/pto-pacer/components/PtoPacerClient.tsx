@@ -54,7 +54,7 @@ export default function PtoPacerClient() {
                 <TrendingUp className="h-5 w-5" />
                 Add Your PTO Data
               </CardTitle>
-              <CardDescription className="dark:text-gray-400 text-left md:text-center">
+              <CardDescription className="text-left text-gray-500 dark:text-gray-400 md:text-center">
                 Upload a CSV file or paste your PTO records to see your usage
                 patterns
               </CardDescription>

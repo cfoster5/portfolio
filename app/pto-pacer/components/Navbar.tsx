@@ -20,7 +20,7 @@ export const Navbar = () => (
         </Link>
         <Link
           href="https://ko-fi.com/cfoster"
-          className="min-w-[44] min-h-[44] content-center px-3 py-2 font-medium text-neutral-800 transition hover:text-indigo-600 dark:text-neutral-200 dark:hover:text-white"
+          className="min-h-[44] min-w-[44] content-center px-3 py-2 font-medium text-neutral-800 transition hover:text-indigo-600 dark:text-neutral-200 dark:hover:text-white"
           target="_blank"
         >
           Tip Jar
