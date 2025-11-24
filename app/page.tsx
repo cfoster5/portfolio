@@ -76,11 +76,11 @@ const Home: NextPage = () => {
           <div className="mt-6 flex flex-col gap-3">
             <h2 className="text-4xl font-bold">Contact</h2>
             <Link
-              href="mailto:cfoster3204@gmail.com"
+            href="mailto:support@coreyfoster.dev"
               className="flex items-center hover:underline"
             >
               <Mail />
-              <span className="ml-2">cfoster3204@gmail.com</span>
+            <span className="ml-2">support@coreyfoster.dev</span>
             </Link>
             <Link
               href="https://github.com/cfoster5"
