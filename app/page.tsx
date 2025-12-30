@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { projects } from "../projects";
 import { ProjectCard } from "./ProjectCard";
-import { FolderGit, Github, Mail } from "lucide-react";
+import { BookOpen, FolderGit, Github, Mail } from "lucide-react";
 
 // const Popover = () => {
 //   return (
@@ -73,24 +73,34 @@ const Home: NextPage = () => {
             ))}
           </div>
 
-          <div className="mt-6 flex flex-col gap-3">
-            <h2 className="text-4xl font-bold">Contact</h2>
-            <Link
-            href="mailto:support@coreyfoster.dev"
-              className="flex items-center hover:underline"
-            >
-              <Mail />
-            <span className="ml-2">support@coreyfoster.dev</span>
-            </Link>
-            <Link
-              href="https://github.com/cfoster5"
-              className="flex items-center hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Github />
-              <span className="ml-2">GitHub</span>
-            </Link>
+          <div className="mt-6 flex flex-col gap-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-4xl font-bold">Blog</h2>
+              <Link href="/blog" className="flex items-center hover:underline">
+                <BookOpen />
+                <span className="ml-2">Read my blog posts</span>
+              </Link>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h2 className="text-4xl font-bold">Contact</h2>
+              <Link
+                href="mailto:support@coreyfoster.dev"
+                className="flex items-center hover:underline"
+              >
+                <Mail />
+                <span className="ml-2">support@coreyfoster.dev</span>
+              </Link>
+              <Link
+                href="https://github.com/cfoster5"
+                className="flex items-center hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github />
+                <span className="ml-2">GitHub</span>
+              </Link>
+            </div>
           </div>
         </main>
 
