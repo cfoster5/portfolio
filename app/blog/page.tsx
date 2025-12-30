@@ -26,7 +26,7 @@ export default function BlogPage() {
                   </h2>
                 </Link>
                 <p className="mt-2 text-gray-600 dark:text-gray-400">
-                  {format(new Date(post.date), "MMMM d, yyyy")}
+                  {format(new Date(post.date + "T00:00:00"), "MMMM d, yyyy")}
                 </p>
                 <p className="mt-2">{post.description}</p>
               </article>

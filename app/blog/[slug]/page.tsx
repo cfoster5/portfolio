@@ -61,6 +61,7 @@ const components: MDXComponents = {
       style={{ width: "100%", height: "auto" }}
     />
   ),
+  video: (props) => <video {...props} />,
 };
 
 export function generateStaticParams() {
@@ -108,7 +109,7 @@ export default async function BlogPost({
         <header className="mb-8">
           <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
           <p className="text-gray-600 dark:text-gray-400">
-            {format(new Date(post.date), "MMMM d, yyyy")}
+            {format(new Date(post.date + "T00:00:00"), "MMMM d, yyyy")}
           </p>
         </header>
         <div className="text-base">
