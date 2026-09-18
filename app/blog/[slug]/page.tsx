@@ -4,6 +4,7 @@ import Image from "next/image";
 import { format } from "date-fns";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import Sponsor from "@/app/Sponsor";
 import type { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
@@ -106,6 +107,7 @@ export default async function BlogPost({
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 dark:text-white">
       <article className="mx-auto max-w-4xl px-8 py-16">
+        <Sponsor />
         <header className="mb-8">
           <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
           <p className="text-gray-600 dark:text-gray-400">
