@@ -33,13 +33,19 @@ export default function BlogPage() {
             ))}
           </div>
         )}
-        <div className="mt-12">
+        <div className="mt-12 flex items-center gap-4">
           <Link
             href="/"
             className="text-blue-600 hover:underline dark:text-blue-400"
           >
             ← Back to home
           </Link>
+          <a
+            href="/rss.xml"
+            className="text-gray-500 hover:underline dark:text-gray-400"
+          >
+            RSS
+          </a>
         </div>
       </main>
     </div>
