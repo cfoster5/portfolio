@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { alternatesFor, siteName } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +7,18 @@ export const metadata: Metadata = {
   itunes: { appId: "6742065968" },
   title: "Simply Water",
   description: "Your clean, minimalistic hydration tracker!",
+  alternates: alternatesFor("/simply-water"),
   openGraph: {
+    type: "website",
+    siteName,
+    locale: "en_US",
+    url: "/simply-water",
+    title: "Simply Water",
+    description: "Your clean, minimalistic hydration tracker!",
+    images: ["/simply-water.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Simply Water",
     description: "Your clean, minimalistic hydration tracker!",
     images: ["/simply-water.png"],
@@ -20,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="container mx-auto px-4 py-16 dark:text-neutral-200 sm:px-6 lg:px-8">
+    <main className="container mx-auto px-4 py-16 sm:px-6 lg:px-8 dark:text-neutral-200">
       {/* Hero Section */}
       <section className="mx-auto max-w-2xl text-center">
         <Image

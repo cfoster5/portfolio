@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import Sponsor from "@/app/Sponsor";
+import { alternatesFor, author, siteName, siteUrl } from "@/lib/site";
 import type { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
@@ -18,16 +20,20 @@ const components: MDXComponents = {
     <h3 className="mb-2 mt-4 text-2xl font-semibold">{children}</h3>
   ),
   p: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
-  a: ({ href, children }) => (
-    <a
-      href={href}
-      className="text-blue-600 hover:underline dark:text-blue-400"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
-    </a>
-  ),
+  a: ({ href, children }) => {
+    // Only send readers off-site in a new tab; keep our own pages in place.
+    const external =
+      /^https?:\/\//.test(href ?? "") && !href?.startsWith(siteUrl);
+    return (
+      <a
+        href={href}
+        className="text-blue-600 hover:underline dark:text-blue-400"
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {children}
+      </a>
+    );
+  },
   ul: ({ children }) => (
     <ul className="mb-4 ml-6 list-disc space-y-2">{children}</ul>
   ),
@@ -78,7 +84,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
@@ -86,9 +92,28 @@ export async function generateMetadata({
     return { title: "Post Not Found" };
   }
 
+  const path = `/blog/${slug}`;
+
   return {
-    title: `${post.title} | Corey Foster`,
+    title: `${post.title} | ${siteName}`,
     description: post.description,
+    alternates: alternatesFor(path),
+    authors: [{ name: author, url: siteUrl }],
+    openGraph: {
+      type: "article",
+      siteName,
+      locale: "en_US",
+      url: path,
+      title: post.title,
+      description: post.description,
+      publishedTime: `${post.date}T00:00:00.000Z`,
+      authors: [author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+    },
   };
 }
 
@@ -104,8 +129,26 @@ export default async function BlogPost({
     notFound();
   }
 
+  const url = `${siteUrl}/blog/${slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: `${post.date}T00:00:00.000Z`,
+    author: { "@type": "Person", name: author, url: siteUrl },
+    publisher: { "@type": "Person", name: author, url: siteUrl },
+    image: `${url}/opengraph-image`,
+    url,
+    mainEntityOfPage: url,
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 dark:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <article className="mx-auto max-w-4xl px-8 py-16">
         <Sponsor />
         <header className="mb-8">
