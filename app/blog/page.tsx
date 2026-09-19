@@ -1,6 +1,33 @@
 import Link from "next/link";
 import { format } from "date-fns";
+import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { alternatesFor, siteName } from "@/lib/site";
+
+const title = "Blog";
+const description =
+  "Posts by Corey Foster on iOS and web development, shipping side projects, and the apps he builds.";
+
+export const metadata: Metadata = {
+  title: `${title} | ${siteName}`,
+  description,
+  alternates: alternatesFor("/blog"),
+  openGraph: {
+    type: "website",
+    siteName,
+    locale: "en_US",
+    url: "/blog",
+    title,
+    description,
+    images: ["/site.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/site.png"],
+  },
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();

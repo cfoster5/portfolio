@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { siteUrl } from "@/lib/site";
+import { alternatesFor, author, siteName, siteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,8 +28,13 @@ export const metadata: Metadata = {
       { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#5bbad5" },
     ],
   },
+  authors: [{ name: author, url: siteUrl }],
+  creator: author,
   openGraph: {
     type: "website",
+    siteName,
+    locale: "en_US",
+    url: "/",
     title,
     description,
     images: ["/site.png"],
@@ -40,11 +45,7 @@ export const metadata: Metadata = {
     description,
     images: ["/site.png"],
   },
-  alternates: {
-    types: {
-      "application/rss+xml": [{ url: "/rss.xml", title: "Corey Foster" }],
-    },
-  },
+  alternates: alternatesFor("/"),
   other: {
     "msapplication-TileColor": "#da532c",
   },

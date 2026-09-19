@@ -3,6 +3,34 @@ import Link from "next/link";
 import { projects } from "../projects";
 import { ProjectCard } from "./ProjectCard";
 import { BookOpen, FolderGit, Github, Mail } from "lucide-react";
+import { author, authorProfiles, siteName, siteUrl } from "@/lib/site";
+
+// Helps search engines tell this Corey Foster apart from the several others
+// who rank for the name.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: author,
+  url: siteUrl,
+  email: "mailto:support@coreyfoster.dev",
+  jobTitle: "Web and app developer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Evansville",
+    addressRegion: "IN",
+    addressCountry: "US",
+  },
+  sameAs: authorProfiles,
+  mainEntityOfPage: siteUrl,
+};
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: siteUrl,
+  author: { "@type": "Person", name: author, url: siteUrl },
+};
 
 // const Popover = () => {
 //   return (
@@ -42,6 +70,12 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([personJsonLd, siteJsonLd]),
+        }}
+      />
       <div className="flex min-h-screen flex-col items-center justify-center bg-white dark:bg-zinc-900 dark:text-white">
         {/* <div className="flex min-h-screen flex-col items-center justify-center py-2"> */}
         <main className="p-8 sm:p-20">
